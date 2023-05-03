@@ -15,16 +15,30 @@ import { IconButton } from "@mui/material";
 import CircularProgress from '@mui/material/CircularProgress';
 import MessageIcon from '@mui/icons-material/Message';
 
-import { useState } from "react";
+// import { PhoneInput } from "react-contact-number-input";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css'
+
+import { useState, useMemo } from "react";
+import Select from 'react-select'
+import countryList from 'react-select-country-list'
 import "./contact.css";
 
 function Contact() {
+    const [value, setValue] = useState()
+    // const [value, setValue] = useState('')
 
     const [successOpen, setSuccessOpen] = useState(false);
     const [message, setMessage] = useState("");
     const [passVisi, setPassVisi] = useState(false);
     const [errorOpen, setErrorOpen] = useState(false);
     const [clicked, setClicked] = useState(false);
+
+    // const options = useMemo(() => countryList().getData(), [])
+
+    // const changeHandler = value => {
+    //     setValue(value)
+    // }
 
 
     let handleClose = () => {
@@ -47,7 +61,10 @@ function Contact() {
             .positive("A phone number can't start with a minus")
             .integer("A phone number can't include a decimal point")
             .min(8)
-            .required('A phone number is required')
+            .required('A phone number is required'),
+        messages: yup
+            .string("Parameter Required")
+            .required("Parameter Required")
     });
     const formik = useFormik({
         initialValues: {
@@ -62,7 +79,6 @@ function Contact() {
             setClicked(true)
 
             console.log("values: ", values);
-            formik.resetForm();
             axios.post('https://admin.hnhweb.dev-um.xyz/api/contact', {
 
                 name: formik.values.name,
@@ -72,6 +88,7 @@ function Contact() {
 
             })
                 .then(response => {
+                    formik.resetForm();
                     setClicked(false)
                     setSuccessOpen(true);
                     let message = response.data.message;
@@ -109,31 +126,9 @@ function Contact() {
                             </InputAdornment>
                         ),
                     }}
-                // variant="contained"
                 />
                 <br />
                 <br />
-
-                {/* <TextField
-                    id="lastName"
-                    name="lastName"
-                    label="Last Name: "
-                    value={formik.values.lastName}
-                    onChange={formik.handleChange}
-                    error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-                    helperText={formik.touched.lastName && formik.errors.lastName}
-                    InputProps={{
-                        endAdornment: (
-                            <InputAdornment position="start">
-                                <AccountCircle />
-                            </InputAdornment>
-                        ),
-                    }}
-                    // variant="standard"
-                />
-                <br />
-                <br /> */}
-
                 <TextField
                     id="email"
                     name="email"
@@ -150,7 +145,6 @@ function Contact() {
                             </InputAdornment>
                         ),
                     }}
-                // variant="standard"
                 />
                 <br />
                 <br />
@@ -171,12 +165,25 @@ function Contact() {
                             </InputAdornment>
                         ),
                     }}
-                // variant="standard"
                 />
                 <br />
                 <br />
+                {/* <div className="int">
+                    <PhoneInput
+                        // name="phone"
+                        className="cPho"
+                        international
+                        defaultCountry="PK"
+                        value={value}
+                        onChange={setValue}
+                    />
+                </div>
+                <br /> */}
+                {/* <Select options={options} value={value} onChange={changeHandler} styles={{width: "260px"}} />
+                <br />
+                <br /> */}
                 <TextField
-                    sx={{ width: "260px" }}
+                    // sx={{ width: "260px" }}
                     multiline
                     rows={3}
                     id="messages"
