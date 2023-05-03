@@ -1,0 +1,76 @@
+.main{
+    width: 100%;
+}
+.imageText{
+    top: 120px;
+    left: 75px;
+    text-align: left;
+    /* left: 5; */
+}
+.imageText > p{
+    max-width: 50%;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: left;
+    /* left: 5; */
+}
+.imageText > h1 {
+    font-size: 70px !important; 
+}
+@media screen and (max-width: 915px) {
+
+    .imageText > h1 {
+        font-size: 50px !important; 
+    }
+    .imageText > p{
+        max-width: 70%;
+        font-size: 20px !important;
+        font-weight: bold;
+        text-align: left;
+        /* left: 5; */
+    }
+    
+}
+@media screen and (max-width: 650px) {
+
+    .imageText > h1 {
+        font-size: 40px !important; 
+    }
+    .imageText > p{
+        max-width: 75%;
+        font-size: 17px !important;
+        font-weight: bold;
+        text-align: left;
+        /* left: 5; */
+    }
+    
+}
+@media screen and (max-width: 540px) {
+
+    .imageText > h1 {
+        font-size: 30px !important; 
+    }
+    .imageText > p{
+        max-width: 75%;
+        font-size: 12px !important;
+        font-weight: bold;
+        text-align: left;
+        /* left: 5; */
+    }
+    
+}
+@media screen and (max-width: 380px) {
+
+    
+    .imageText > h1 {
+        font-size: 25px !important; 
+    }
+    .imageText > p{
+        max-width: 75%;
+        font-size: 10px !important;
+        font-weight: bold;
+        text-align: left;
+        /* left: 5; */
+    }
+    
+}

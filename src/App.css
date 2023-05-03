@@ -1,0 +1,85 @@
+.main1 {
+  background-color: white !important;
+  padding: 110px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  color: #A1A1A1;
+}
+
+.contact {
+  font-size: 12px;
+}
+
+.call>svg {
+  color: #FF8800;
+  font-size: 15px;
+}
+
+.email>svg {
+  font-size: 15px;
+}
+
+.mailto {
+  color: #A1A1A1;
+}
+
+.tel {
+  color: #FF8800;
+}
+
+.logo {
+  height: 100%;
+}
+.contact2{
+  text-align: end;
+}
+.cLogos > a {
+  text-decoration: none;
+  color: #A1A1A1;
+}
+.cLogos > a > svg{
+  font-size: 35px;
+}
+.nav{
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.nav>li{
+  margin-right: 20px;
+}
+.nav>li>a{
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+}
+.menu{
+  background-color: black;
+  color: white;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.log{
+  margin-left: 300px;
+  color: white;
+  font-weight: bold;
+}
+.log>svg{
+  font-size: 12px;
+}
+.log>span{
+  font-size: 15px;
+}
+@media screen and (max-width: 860px) {
+  .main1{
+    display: none;
+  }
+  .menu{
+    display: none;
+  }
+  
+}
